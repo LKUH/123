@@ -13,6 +13,7 @@
   #include "pins_arduino.h"
 #endif
 
+// Accelerometer
 
 
 // QAEF Constants
@@ -35,7 +36,7 @@ class Amalthea_AHRS
 		Amalthea_AHRS(UpdateMethod updateMethod);
 		void Amalthea_AHRS_2(UpdateMethod updateMethod);
 		void update();
-		void update_acc();
+		void update_acc(int x, int y, int z);
 		
 		float pitch, yaw, roll;
 		float gx, gy, gz, mx, my, mz;
@@ -45,6 +46,7 @@ class Amalthea_AHRS
 		int raw_aX, raw_aY, raw_aZ, ax, ay, az;
 	
 	private:
+		void acc_powerOn();
 		void initializeMarg();
 		ADXL345* initializeMarg_2();
 		void readMarg();

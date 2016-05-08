@@ -46,12 +46,10 @@ void Amalthea_AHRS::update()
 	// tick();
 }
 
-void Amalthea_AHRS::update_acc()
-{
-    acc->readAccel(&raw_aX, &raw_aY, &raw_aZ);
-	ax = raw_aX;
-	ay = raw_aY;
-	az = raw_aZ;
+void Amalthea_AHRS::update_acc(int x, int y, int z)
+{	ax = x;
+	ay = y;
+	az = z;
 }
 
 void Amalthea_AHRS::initializeMarg()
@@ -103,7 +101,7 @@ void Amalthea_AHRS::readMarg()
 	// az = marg->calcAccel(marg->az);
 
 	// marg->readGyro();
-	// gx = marg->calcGyro(marg->gx);
+	// gx = marg->calcGyro(marpitchg->gx);
 	// gy = marg->calcGyro(marg->gy);
 	// gz = marg->calcGyro(marg->gz);
 
